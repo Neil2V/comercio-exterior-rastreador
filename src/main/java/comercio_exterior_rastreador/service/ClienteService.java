@@ -7,5 +7,8 @@ import reactor.core.publisher.Mono;
 public interface ClienteService {
     Mono<Cliente> saveCliente(Cliente cliente);
 
+    Mono<Cliente> updateCliente(Cliente cliente);
+
+
     Flux<Cliente> listaClientes();
 }

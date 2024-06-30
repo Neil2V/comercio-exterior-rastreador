@@ -22,7 +22,12 @@ public class ClienteController {
         return new ResponseEntity<>(clienteService.listaClientes(), HttpStatus.OK);
     }
     @PostMapping(path = "/registrar")
-    public ResponseEntity<Mono<Cliente>> registrarCliene(@RequestBody Cliente cliente){
+    public ResponseEntity<Mono<Cliente>> registrarCliente(@RequestBody Cliente cliente){
+        return new ResponseEntity<>(clienteService.saveCliente(cliente), HttpStatus.OK);
+    }
+
+    @PutMapping(path = "/actualizar")
+    public ResponseEntity<Mono<Cliente>> actualizarCliene(@RequestBody Cliente cliente){
         return new ResponseEntity<>(clienteService.saveCliente(cliente), HttpStatus.OK);
     }
 }

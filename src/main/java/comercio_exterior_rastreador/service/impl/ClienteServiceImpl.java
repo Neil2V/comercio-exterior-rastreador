@@ -35,6 +35,17 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
+    public Mono<Cliente> updateCliente(Cliente cliente) {
+        return builder.build()
+                .put()
+                .uri(url1 + "/api/clientes/actualizar")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(BodyInserters.fromValue(cliente))
+                .retrieve()
+                .bodyToMono(Cliente.class);
+    }
+
+    @Override
     public Flux<Cliente> listaClientes() {
         return builder.build()
                 .get()
