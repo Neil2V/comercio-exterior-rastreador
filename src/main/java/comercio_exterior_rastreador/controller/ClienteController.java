@@ -27,7 +27,7 @@ public class ClienteController {
     }
 
     @PutMapping(path = "/actualizar")
-    public ResponseEntity<Mono<Cliente>> actualizarCliene(@RequestBody Cliente cliente){
+    public ResponseEntity<Mono<Cliente>> actualizarCliente(@RequestBody Cliente cliente){
         return new ResponseEntity<>(clienteService.updateCliente(cliente), HttpStatus.OK);
     }
 
