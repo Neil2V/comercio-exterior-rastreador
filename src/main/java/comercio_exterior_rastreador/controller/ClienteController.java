@@ -30,4 +30,11 @@ public class ClienteController {
     public ResponseEntity<Mono<Cliente>> actualizarCliene(@RequestBody Cliente cliente){
         return new ResponseEntity<>(clienteService.saveCliente(cliente), HttpStatus.OK);
     }
+
+    @DeleteMapping(path = "/delete/{idCliente}")
+    public Mono<ResponseEntity<Cliente>> eliminar(@PathVariable("idCliente") Integer idCliente){
+        return clienteService.deleteCliente(idCliente)
+                .map(e -> new ResponseEntity<>(e, HttpStatus.OK))
+                .switchIfEmpty(Mono.just(new ResponseEntity<>(HttpStatus.NOT_FOUND)));
+    }
 }

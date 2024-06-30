@@ -9,6 +9,8 @@ public interface ClienteService {
 
     Mono<Cliente> updateCliente(Cliente cliente);
 
+    Mono<Cliente> deleteCliente(Integer idCliente);
+
 
     Flux<Cliente> listaClientes();
 }

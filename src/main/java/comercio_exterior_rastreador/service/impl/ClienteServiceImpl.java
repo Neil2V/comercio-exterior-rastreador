@@ -46,6 +46,15 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
+    public Mono<Cliente> deleteCliente(Integer idCliente) {
+        return builder.build()
+                .delete()
+                .uri(url1 + "/api/clientes/delete/"+idCliente)
+                .retrieve()
+                .bodyToMono(Cliente.class);
+    }
+
+    @Override
     public Flux<Cliente> listaClientes() {
         return builder.build()
                 .get()
