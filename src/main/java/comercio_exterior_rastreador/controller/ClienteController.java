@@ -28,7 +28,7 @@ public class ClienteController {
 
     @PutMapping(path = "/actualizar")
     public ResponseEntity<Mono<Cliente>> actualizarCliene(@RequestBody Cliente cliente){
-        return new ResponseEntity<>(clienteService.saveCliente(cliente), HttpStatus.OK);
+        return new ResponseEntity<>(clienteService.updateCliente(cliente), HttpStatus.OK);
     }
 
     @DeleteMapping(path = "/delete/{idCliente}")

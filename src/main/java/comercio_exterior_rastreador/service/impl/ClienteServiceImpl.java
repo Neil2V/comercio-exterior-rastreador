@@ -17,9 +17,6 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Value("${url1}")
     String url1;
-
-    @Value("${url2}")
-    String url2;
     @Autowired
     WebClient.Builder builder;
 
