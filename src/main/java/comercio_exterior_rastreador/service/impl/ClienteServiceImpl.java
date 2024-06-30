@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import org.springframework.web.reactive.function.BodyInserters;
+
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -20,9 +22,16 @@ public class ClienteServiceImpl implements ClienteService {
     String url2;
     @Autowired
     WebClient.Builder builder;
+
     @Override
-    public Mono<Void> saveCliente(Cliente cliente) {
-        return null;
+    public Mono<Cliente> saveCliente(Cliente cliente) {
+        return builder.build()
+                .post()
+                .uri(url1 + "/api/clientes/registrar")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(BodyInserters.fromValue(cliente))
+                .retrieve()
+                .bodyToMono(Cliente.class);
     }
 
     @Override

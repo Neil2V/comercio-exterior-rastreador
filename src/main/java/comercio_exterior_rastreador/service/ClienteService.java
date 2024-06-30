@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface ClienteService {
-    Mono<Void> saveCliente(Cliente cliente);
+    Mono<Cliente> saveCliente(Cliente cliente);
 
     Flux<Cliente> listaClientes();
 }
